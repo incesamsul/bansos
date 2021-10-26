@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Okt 2021 pada 11.42
--- Versi server: 10.4.18-MariaDB
--- Versi PHP: 8.0.3
+-- Generation Time: Oct 23, 2021 at 08:25 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bantuan`
+-- Table structure for table `bantuan`
 --
 
 CREATE TABLE `bantuan` (
@@ -49,21 +49,27 @@ CREATE TABLE `bantuan` (
   `lama_bekerja` varchar(128) DEFAULT NULL,
   `is_active` int(11) NOT NULL,
   `menerima` int(11) NOT NULL,
-  `acc_staff` int(11) NOT NULL
+  `acc_staff` int(11) NOT NULL,
+  `foto` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `bantuan`
+-- Dumping data for table `bantuan`
 --
 
-INSERT INTO `bantuan` (`id`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jkl`, `status`, `pekerjaan`, `penghasilan`, `jml_tanggungan`, `jml_anak`, `alamat`, `jenis_bantuan_id`, `lahan_kontrak`, `lahan_pribadi`, `rumah`, `old_pekerjaan`, `nganggur`, `lama_bekerja`, `is_active`, `menerima`, `acc_staff`) VALUES
-(1, '7371100108980006', 'Aswandi B', 'Ujung Pandang', '2021-10-12', 'Pria', 'Menikah', 'Mahasiswa', 10000000, 5, 4, 'Jln. Swadaya Komp. Veteran', 1, '25', '10', NULL, NULL, NULL, NULL, 0, 0, 0),
-(2, '737110010898000', 'Baso Mawar', 'Ujung Pandang', '2021-10-06', 'Pria', 'Menikah', 'Mahasiswa', 10000000, 5, 4, 'Jln. Swadaya Komp. Veteran', 3, NULL, '10', 'Kayu', NULL, NULL, NULL, 0, 1, 1);
+INSERT INTO `bantuan` (`id`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jkl`, `status`, `pekerjaan`, `penghasilan`, `jml_tanggungan`, `jml_anak`, `alamat`, `jenis_bantuan_id`, `lahan_kontrak`, `lahan_pribadi`, `rumah`, `old_pekerjaan`, `nganggur`, `lama_bekerja`, `is_active`, `menerima`, `acc_staff`, `foto`) VALUES
+(1, '7371100108980006', 'Aswandi B', 'Ujung Pandang', '2021-10-12', 'Pria', 'Menikah', 'Mahasiswa', 10000000, 5, 4, 'Jln. Swadaya Komp. Veteran', 1, '25', '10', NULL, NULL, NULL, NULL, 0, 1, 1, ''),
+(2, '737110010898000', 'Baso Mawar', 'Ujung Pandang', '2021-10-06', 'Pria', 'Menikah', 'Mahasiswa', 10000000, 5, 4, 'Jln. Swadaya Komp. Veteran', 3, NULL, '10', 'Kayu', NULL, NULL, NULL, 0, 1, 1, ''),
+(3, '123', 'test', 'test', '12 October 2021', 'Pria', 'Menikah', 'Pembersih Kuburan', 0, 8, 8, 'test', 8, NULL, NULL, NULL, NULL, NULL, 'test', 0, 1, 1, ''),
+(4, '123', 'test', 'fdf', '13 October 2021', 'Pria', 'Menikah', 'Pemandi Jenaza', 0, 9, 9, 'fdfdf', 7, NULL, NULL, NULL, NULL, NULL, 'fdf', 0, 1, 1, ''),
+(11, '9', '9', '9', '2021-10-09', 'Pria', 'Menikah', '9', 9, 9, 9, '9', 2, '9', '9', NULL, NULL, NULL, NULL, 0, 0, 0, 'Screenshot_(3)1.png'),
+(12, '9', '9', '9', '2021-10-24', 'Wanita', 'Menikah', '0', 0, 0, 0, '9', 2, '0', '0', NULL, NULL, NULL, NULL, 0, 0, 0, '1635009734Screenshot_(2).png'),
+(13, '1212', '9', '9', '9', 'Pria', 'Menikah', '9', 9, 9, 9, '9', 1, '9', '9', NULL, NULL, NULL, NULL, 0, 0, 0, '1635010287Screenshot_(3).png');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jenis_bantuan`
+-- Table structure for table `jenis_bantuan`
 --
 
 CREATE TABLE `jenis_bantuan` (
@@ -77,7 +83,7 @@ CREATE TABLE `jenis_bantuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `jenis_bantuan`
+-- Dumping data for table `jenis_bantuan`
 --
 
 INSERT INTO `jenis_bantuan` (`id`, `nama_bantuan`, `slug_bantuan`, `jml_penerima`, `is_active`, `image`, `persyaratan`) VALUES
@@ -93,7 +99,7 @@ INSERT INTO `jenis_bantuan` (`id`, `nama_bantuan`, `slug_bantuan`, `jml_penerima
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kriteria_bantuan`
+-- Table structure for table `kriteria_bantuan`
 --
 
 CREATE TABLE `kriteria_bantuan` (
@@ -111,7 +117,7 @@ CREATE TABLE `kriteria_bantuan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `news`
+-- Table structure for table `news`
 --
 
 CREATE TABLE `news` (
@@ -124,7 +130,7 @@ CREATE TABLE `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `news`
+-- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `title`, `deskripsi`, `jenis_bantuan_id`, `date_created`, `image`) VALUES
@@ -133,7 +139,7 @@ INSERT INTO `news` (`id`, `title`, `deskripsi`, `jenis_bantuan_id`, `date_create
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `perusahaan`
+-- Table structure for table `perusahaan`
 --
 
 CREATE TABLE `perusahaan` (
@@ -150,7 +156,7 @@ CREATE TABLE `perusahaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `perusahaan`
+-- Dumping data for table `perusahaan`
 --
 
 INSERT INTO `perusahaan` (`id`, `nama_perusahaan`, `bidang`, `alamat_perusahaan`, `kota`, `telp`, `image`, `fb`, `instagram`, `email`) VALUES
@@ -159,7 +165,7 @@ INSERT INTO `perusahaan` (`id`, `nama_perusahaan`, `bidang`, `alamat_perusahaan`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `setting`
+-- Table structure for table `setting`
 --
 
 CREATE TABLE `setting` (
@@ -169,7 +175,7 @@ CREATE TABLE `setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `setting`
+-- Dumping data for table `setting`
 --
 
 INSERT INTO `setting` (`id`, `image`, `is_active`) VALUES
@@ -181,7 +187,7 @@ INSERT INTO `setting` (`id`, `image`, `is_active`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -198,7 +204,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `telp`, `address`, `role_id`, `is_active`, `date_created`) VALUES
@@ -210,7 +216,7 @@ INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `telp`, `address
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_access_menu`
+-- Table structure for table `user_access_menu`
 --
 
 CREATE TABLE `user_access_menu` (
@@ -220,7 +226,7 @@ CREATE TABLE `user_access_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `user_access_menu`
+-- Dumping data for table `user_access_menu`
 --
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
@@ -247,7 +253,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_menu`
+-- Table structure for table `user_menu`
 --
 
 CREATE TABLE `user_menu` (
@@ -257,7 +263,7 @@ CREATE TABLE `user_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `user_menu`
+-- Dumping data for table `user_menu`
 --
 
 INSERT INTO `user_menu` (`id`, `menu`, `icon`) VALUES
@@ -272,7 +278,7 @@ INSERT INTO `user_menu` (`id`, `menu`, `icon`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_role`
+-- Table structure for table `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -281,7 +287,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `user_role`
+-- Dumping data for table `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
@@ -293,7 +299,7 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_sub_menu`
+-- Table structure for table `user_sub_menu`
 --
 
 CREATE TABLE `user_sub_menu` (
@@ -305,7 +311,7 @@ CREATE TABLE `user_sub_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `user_sub_menu`
+-- Dumping data for table `user_sub_menu`
 --
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `is_active`) VALUES
@@ -335,7 +341,7 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `is_active`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_token`
+-- Table structure for table `user_token`
 --
 
 CREATE TABLE `user_token` (
@@ -350,149 +356,149 @@ CREATE TABLE `user_token` (
 --
 
 --
--- Indeks untuk tabel `bantuan`
+-- Indexes for table `bantuan`
 --
 ALTER TABLE `bantuan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `jenis_bantuan`
+-- Indexes for table `jenis_bantuan`
 --
 ALTER TABLE `jenis_bantuan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kriteria_bantuan`
+-- Indexes for table `kriteria_bantuan`
 --
 ALTER TABLE `kriteria_bantuan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `news`
+-- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `perusahaan`
+-- Indexes for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `setting`
+-- Indexes for table `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_access_menu`
+-- Indexes for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_menu`
+-- Indexes for table `user_menu`
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_role`
+-- Indexes for table `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_sub_menu`
+-- Indexes for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_token`
+-- Indexes for table `user_token`
 --
 ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `bantuan`
+-- AUTO_INCREMENT for table `bantuan`
 --
 ALTER TABLE `bantuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `jenis_bantuan`
+-- AUTO_INCREMENT for table `jenis_bantuan`
 --
 ALTER TABLE `jenis_bantuan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `kriteria_bantuan`
+-- AUTO_INCREMENT for table `kriteria_bantuan`
 --
 ALTER TABLE `kriteria_bantuan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `news`
+-- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `perusahaan`
+-- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `setting`
+-- AUTO_INCREMENT for table `setting`
 --
 ALTER TABLE `setting`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT untuk tabel `user_access_menu`
+-- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT untuk tabel `user_menu`
+-- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT untuk tabel `user_role`
+-- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `user_sub_menu`
+-- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
--- AUTO_INCREMENT untuk tabel `user_token`
+-- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;

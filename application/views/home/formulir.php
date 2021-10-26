@@ -85,6 +85,7 @@
 							<div class="down-content">
 								<h4><?= $jb['nama_bantuan']; ?></h4>
 								<a href="<?= base_url('home/pendaftaran/' . $jb['slug_bantuan']); ?>" class="filled-button bt-sm mt-2">Daftar</a>
+								<a data-jenis_bantuan="<?= $jb['slug_bantuan'] ?>" href="#" data-toggle="modal" data-target="#modalBantuan" class="btn-info-bantuan filled-button text-white bg-info bt-sm mt-2">Info</a>
 							</div>
 						</div>
 					</div>
@@ -107,6 +108,26 @@
 			</div>
 		</div>
 	</footer>
+
+	<!-- MODAL BANTUAN -->
+	<!-- Modal -->
+	<div class="modal fade" id="modalBantuan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Bantuan</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="alert alert-info alert-info-wrapper">
+						tidak bisa memuat data ...
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<!-- Bootstrap core JavaScript -->
@@ -131,6 +152,21 @@
 				t.style.color = '#fff';
 			}
 		}
+	</script>
+	<script>
+		$('.btn-info-bantuan').on('click', function(e) {
+			let jenisBantuan = $(this).data('jenis_bantuan');
+			console.log(jenisBantuan);
+			if (jenisBantuan == 'bantuan-raskin') {
+				$('.alert-info-wrapper').html('Upload foto KIS anda pada form formulir pendaftaran');
+			} else if (jenisBantuan == 'bantuan-phk') {
+				$('.alert-info-wrapper').html('upload scan surat keterangan PHK dari kantor tempat bekerja sebelumnya pada form formulir pendaftaran');
+			} else if (jenisBantuan !== 'bantuan-phk' || jenisBantuan !== 'bantuan-raskin') {
+				$('.alert-info-wrapper').html('upload scan surat keterangan perkerjaan yang di buat di kelurahan pada form formulir pendaftaran');
+			}
+
+
+		})
 	</script>
 
 

@@ -233,6 +233,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 						</ul>
 						<li>Menunggu informasi dari kantor lurah</li>
 						<li>Data bisa di cek di situs ketika sudah terdaftar</li>
+						<li>Mempunyai surat keterangan kerja dari kelurahan</li>
 					</ol>
 				</div>
 			</div>
